@@ -9,7 +9,7 @@ Flutter Application Development for Transaction Listing
   
 </p>
 
-![Watch the a Demo.](https://drive.google.com/file/d/1FBkYoFzNCgnJaVQy1YNTEX4I2sWHqCZp/view?usp=sharing)
+Watch the a Demo. https://drive.google.com/file/d/1FBkYoFzNCgnJaVQy1YNTEX4I2sWHqCZp/view?usp=sharing
 
 
 ## ✨✨ Features
