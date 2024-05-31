@@ -4,7 +4,6 @@ import 'package:blockchain_app/app/shared/ui/app_icons.dart';
 import 'package:blockchain_app/app/shared/ui/app_text_styles.dart';
 import 'package:blockchain_app/app/shared/utils/sized_context.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
@@ -34,6 +33,7 @@ class TransactionDetailsScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
+        centerTitle: true,
         title: const Text('Transaction details'),
         titleTextStyle: const TextStyle(
           color: Colors.black,

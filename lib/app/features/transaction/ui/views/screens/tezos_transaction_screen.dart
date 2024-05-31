@@ -1,4 +1,3 @@
-import 'package:blockchain_app/app/features/transaction/data/model/raw_block_response.dart';
 import 'package:blockchain_app/app/features/transaction/data/model/tezos_blocks_response.dart';
 import 'package:blockchain_app/app/features/transaction/ui/cubit/cubit/transaction_cubit.dart';
 import 'package:blockchain_app/app/features/transaction/ui/views/screens/transaction_loading_screen.dart';
@@ -86,6 +85,7 @@ class _Transactions extends StatelessWidget {
           appBar: AppBar(
             backgroundColor: Colors.white,
             elevation: 0,
+            centerTitle: true,
             title: const Text('Tezos transactions'),
             titleTextStyle: const TextStyle(
               color: Colors.black,

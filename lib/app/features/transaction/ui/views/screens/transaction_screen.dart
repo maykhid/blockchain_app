@@ -85,6 +85,7 @@ class _Transactions extends StatelessWidget {
           appBar: AppBar(
             backgroundColor: Colors.white,
             elevation: 0,
+            centerTitle: true,
             title: const Text('BTC transactions'),
             titleTextStyle: const TextStyle(
               color: Colors.black,

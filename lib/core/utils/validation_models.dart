@@ -34,7 +34,6 @@ enum PasswordValidationError {
   minLength
 }
 
-
 class PasswordLogin extends FormzInput<String, PasswordValidationError> {
   /// {@macro password}
   const PasswordLogin.pure() : super.pure('');
@@ -62,6 +61,7 @@ extension PasswordValidationErrorMessage on PasswordValidationError {
       case PasswordValidationError.minLength:
         return 'Password must be at least 8 characters long.';
       case PasswordValidationError.invalid:
+        // ignore: lines_longer_than_80_chars
         return 'Password must contain at least\none lowercase letter, \none uppercase letter,\none digit \nand a special character.';
     }
   }

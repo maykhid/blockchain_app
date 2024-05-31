@@ -1,9 +1,12 @@
+// ignore_for_file: lines_longer_than_80_chars
+
 import 'package:blockchain_app/app/features/auth/ui/cubit/authentication_cubit/authentication_cubit.dart';
 import 'package:blockchain_app/app/features/auth/ui/cubit/sign_in_cubit/sign_in_cubit.dart';
 import 'package:blockchain_app/app/shared/ui/app_button.dart';
 import 'package:blockchain_app/app/shared/ui/app_colors.dart';
 import 'package:blockchain_app/app/shared/ui/app_icons.dart';
 import 'package:blockchain_app/app/shared/ui/app_text_field.dart';
+import 'package:blockchain_app/app/shared/ui/app_text_styles.dart';
 import 'package:blockchain_app/app/shared/utils/sized_context.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -52,88 +55,88 @@ class _SignInViewState extends State<SignInView> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // log in invite
-          const Text(
-            'Log in to your account',
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.w600,
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // log in invite
+            const Text(
+              'Log in to your account',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w600,
+              ),
             ),
-          ),
 
-          const Gap(8),
+            const Gap(8),
 
-          //
-          const Text(
-            'Welcome back! Please enter your registered\nemail address to continue',
-            style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.w400,
-              color: Colors.grey,
+            //
+            Text(
+              'Welcome back! Please enter your registered\nemail address to continue',
+              style: AppTextStyles.smallGrey,
             ),
-          ),
 
-          const Gap(20),
-          const Text('Email address'),
+            const Gap(20),
+            const Text('Email address'),
 
-          const Gap(10),
+            const Gap(10),
 
-          const _EmailTextField(),
+            const _EmailTextField(),
 
-          const Gap(20),
-          const Text('Password'),
-          const Gap(10),
+            const Gap(20),
+            const Text('Password'),
+            const Gap(10),
 
-          // password text field
-          BlocBuilder<SignInCubit, SignInState>(
-            buildWhen: (previous, current) =>
-                previous.password != current.password,
-            builder: (context, state) {
-              final cubit = context.read<SignInCubit>();
-              return AppTextField(
-                obscureText: isHidden,
-                onChanged: (password) => cubit.passwordChanged(password!),
-                errorText: state.password.displayError != null
-                    ? ' invalid password'
-                    : null,
-                suffixIcon: IconButton(
-                  color: AppColors.black.withOpacity(0.6),
-                  icon: FaIcon(
-                    size: 15,
-                    isHidden ? FontAwesomeIcons.eyeSlash : FontAwesomeIcons.eye,
+            // password text field
+            BlocBuilder<SignInCubit, SignInState>(
+              buildWhen: (previous, current) =>
+                  previous.password != current.password,
+              builder: (context, state) {
+                final cubit = context.read<SignInCubit>();
+                return AppTextField(
+                  obscureText: isHidden,
+                  onChanged: (password) => cubit.passwordChanged(password!),
+                  errorText: state.password.displayError != null
+                      ? ' invalid password'
+                      : null,
+                  suffixIcon: IconButton(
+                    color: AppColors.black.withOpacity(0.6),
+                    icon: FaIcon(
+                      size: 15,
+                      isHidden
+                          ? FontAwesomeIcons.eyeSlash
+                          : FontAwesomeIcons.eye,
+                    ),
+                    onPressed: () => setState(() {
+                      isHidden = !isHidden;
+                    }),
                   ),
-                  onPressed: () => setState(() {
-                    isHidden = !isHidden;
-                  }),
-                ),
-              );
-            },
-          ),
+                );
+              },
+            ),
 
-          const Spacer(),
+             Gap(context.height * 0.44,),
 
-          BlocBuilder<SignInCubit, SignInState>(
-            builder: (context, state) {
-              return AppButton(
-                text: 'Continue',
-                height: 48,
-                width: context.width,
-                backgroundColor: AppColors.green,
-                onPressed: state.isValid
-                    ? () {
-                        context.read<SignInCubit>().signIn();
-                      }
-                    : null,
-                isLoading: state.status == FormzSubmissionStatus.inProgress,
-              );
-            },
-          ),
+            BlocBuilder<SignInCubit, SignInState>(
+              builder: (context, state) {
+                return AppButton(
+                  text: 'Continue',
+                  height: 48,
+                  width: context.width,
+                  backgroundColor: AppColors.green,
+                  onPressed: state.isValid
+                      ? () {
+                          context.read<SignInCubit>().signIn();
+                        }
+                      : null,
+                  isLoading: state.status == FormzSubmissionStatus.inProgress,
+                );
+              },
+            ),
 
-          const Gap(20),
-        ],
+            const Gap(20),
+          ],
+        ),
       ),
     );
   }

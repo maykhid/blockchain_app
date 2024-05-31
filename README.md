@@ -3,13 +3,9 @@
 # An Assessment Project.
 Flutter Application Development for Transaction Listing
 
-## 🖼️ Screenshots ##
-<p float="left">
-  <img src= "https://github.com/maykhid/eden_task/blob/main/assets/images/app_ui.jpg" width="434.5" height="424.5" />
-  
-</p>
-
 Watch the a Demo. https://drive.google.com/file/d/1FBkYoFzNCgnJaVQy1YNTEX4I2sWHqCZp/view?usp=sharing
+
+<a href="https://drive.google.com/file/d/1cpx2onOGfPX2f_q1Y3QaP8meuVhtNHZo/view?usp=drive_link"><img src="https://playerzon.com/asset/download.png" width="200"></img></a>
 
 
 ## ✨✨ Features
