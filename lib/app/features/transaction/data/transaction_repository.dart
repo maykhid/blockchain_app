@@ -49,11 +49,15 @@ class TransactionRepository {
       final rawBlock = _rawBlockDao.readRawBlock();
 
       if (rawBlock == null) {
+        // clear key to enable raw block to be fetched on error
+        Once.clear(key: 'fetchRawBlock'); 
         return Result.failure(errorMessage: 'Raw block not found');
       }
 
       return Result.success(rawBlock);
     } catch (e) {
+      // clear key to enable raw block to be fetched again on error
+      Once.clear(key: 'fetchRawBlock'); 
       return Result.failure(errorMessage: e.toString());
     }
   }
@@ -64,7 +68,6 @@ class TransactionRepository {
 
       return Result.success(response);
     } catch (e) {
-      print(e);
       return Result.failure(errorMessage: e.toString());
     }
   }
