@@ -9,7 +9,7 @@ Flutter Application Development for Transaction Listing
   
 </p>
 
-![](https://drive.google.com/file/d/1FBkYoFzNCgnJaVQy1YNTEX4I2sWHqCZp/view?usp=sharing)
+![Watch the a Demo.](https://drive.google.com/file/d/1FBkYoFzNCgnJaVQy1YNTEX4I2sWHqCZp/view?usp=sharing)
 
 
 ## ✨✨ Features
@@ -35,5 +35,5 @@ This project involves creating a Flutter application that interacts with blockch
 ## 🛠 Technical Note
 The app connects to both (https://blockchain.info/rawblock/$block_hash and https://api.tzkt.io/#tag/Blocks) to get all tansactions in the block for both BTC and Tezos transactions respsectively.
 
-For the BTC transactions we call https://blockchain.info/latestblock to get us the latest block hash then we proceed to call https://blockchain.info/rawblock/$block_hash with the given blockhash to get the latest BTC block transaction. This particular request can take a long time to process because of the large data it tries to pull, so I cache the response but fetches new data every 15 minutes for better user experience.
+For the BTC transactions we call https://blockchain.info/latestblock to get us the latest block hash then we proceed to call https://blockchain.info/rawblock/$block_hash with the given blockhash to get the latest BTC block transaction. This particular request can take a long time to process because of the large data it tries to pull, so I cache the response but fetch new data every 15 minutes for better user experience.
 For the Tezos transactions we call https://api.tzkt.io/v1/blocks to fetch all blocks.
